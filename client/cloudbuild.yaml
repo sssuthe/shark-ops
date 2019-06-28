@@ -1,0 +1,13 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/sharkops-239501/shark-ops-ui-image:v4.3', '.']
+  timeout: 500s
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/sharkops-239501/shark-ops-ui-image:v4.3']
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/shark-ops-ui-deployment', 'shark-ops-ui-deployment=gcr.io/sharkops-239501/shark-ops-ui-image:v4.3']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-east4-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=shark-ops-cluster'
+timeout: 660s
+images: ['gcr.io/sharkops-239501/shark-ops-ui-image:v4.3']
