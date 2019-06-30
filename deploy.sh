@@ -1,3 +1,5 @@
+SHA=$(git rev-parse HEAD)
+
 docker build -t sssuthe/shark-ops-client:latest -t sssuthe/shark-ops-client:$SHA -f ./client/Dockerfile ./client
 docker build -t sssuthe/shark-ops-server:latest -t sssuthe/shark-ops-server:$SHA -f ./server/Dockerfile ./server
 
