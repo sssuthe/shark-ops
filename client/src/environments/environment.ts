@@ -29,6 +29,6 @@ export const environment = {
   },
   resourceServer: {
     messagesUrl: 'https://192.168.99.100/api/messages',
-    accountsUrl: 'https://192.168.99.100/accounts'
+    accountsUrl: 'https://192.168.99.100/api/accounts'
   }
 };

@@ -12,9 +12,9 @@ const oktaJwtVerifier = new OktaJwtVerifier({
     testing: sampleConfig.resourceServer.oidc.testing
   });
 
-router.get('/accounts', HealthcheckController.getAccounts);
-router.get('/healthcheck', HealthcheckController.getHealthcheck);
-router.get('/', function (req, res) {
+router.get('/api/accounts', HealthcheckController.getAccounts);
+router.get('/api/healthcheck', HealthcheckController.getHealthcheck);
+router.get('/api', function (req, res) {
     res.redirect('/healthcheck');
 });
 
