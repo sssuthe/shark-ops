@@ -12,6 +12,7 @@ spec:
     - hosts:
         - sssuthe.com
         - www.sssuthe.com
+        - example.com
       secretName: sssuthe-com
   rules:
     - host: sssuthe.com
@@ -26,6 +27,17 @@ spec:
               serviceName: server-cluster-ip-service
               servicePort: 5000
     - host: www.sssuthe.com
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: client-cluster-ip-service
+              servicePort: 4200
+          - path: /api/?(.*)
+            backend:
+              serviceName: server-cluster-ip-service
+              servicePort: 5000
+    - host: example.com
       http:
         paths:
           - path: /?(.*)

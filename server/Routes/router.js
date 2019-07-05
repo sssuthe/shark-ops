@@ -18,7 +18,7 @@ router.get('/api', function (req, res) {
     res.redirect('/healthcheck');
 });
 
-router.get('/newHealthcheck', (req, res) => {
+router.get('/api/newHealthcheck', (req, res) => {
     res.json({
       message: 'Hello!  There\'s not much to see here :) Please grab one of our front-end samples for use with this sample resource server'
     });
@@ -28,7 +28,7 @@ router.get('/newHealthcheck', (req, res) => {
  * Another example route that requires a valid access token for authentication, and
  * print some messages for the user if they are authenticated
  */
-router.get('/api/messages', authenticationRequired, (req, res) => {
+router.get('/api/messages', (req, res) => {
     res.json({
       messages: [
         {
